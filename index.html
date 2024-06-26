@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Predikat Kelulusan</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    #hasil {
+        color: green; /* Warna teks hijau */
+        font-weight: bold; /* Teks tebal */
+        margin-top: 10px; /* Jarak atas */
+    }
+    .copyright {
+        font-size: 12px;
+        color: #666;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Predikat Kelulusan</h2>
+    <label for="nama">Nama :</label>
+    <input type="text" id="nama" name="nama" required><br><br>
+    
+    <label for="kelas">Kelas:</label>
+    <input type="text" id="kelas" name="kelas" required><br><br>
+    
+    <label for="jurusan">Jurusan:</label>
+    <input type="text" id="jurusan" name="jurusan" required><br><br>
+    
+    <label for="nilai">Nilai:</label>
+    <input type="number" id="nilai" name="nilai" min="0" max="100" required><br><br>
+    
+    <button onclick="hitungPredikat()">Cek Kelulusan</button>
+    <p id="hasil"></p>
+</div>
+
+<script>
+function hitungPredikat() {
+    var nama = document.getElementById("nama").value;
+    var kelas = document.getElementById("kelas").value;
+    var jurusan = document.getElementById("jurusan").value;
+    var inputNilai = document.getElementById("nilai").value;
+    var nilai = parseFloat(inputNilai);
+
+    if (nilai > 74) {
+        var hasilElement = document.getElementById("hasil");
+        hasilElement.innerHTML = "<span style='color: green;'>Selamat, Anda lulus!</span>";
+    } else {
+        var hasilElement = document.getElementById("hasil");
+        hasilElement.innerHTML = "<span style='color: red;'>Maaf, Anda belum lulus.</span>";
+    }
+}
+</script>
+
+<div class="copyright">
+    &copy; Yasar TAMPAN
+</div>
+
+</body>
+</html>
